@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajustes</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function recorrido(){
+            window.open('/verrecorrido','_parent')
+        }
+        function restablecer(){
+            window.open('/ajustes4','_parent')
+        }
+        function probar(){
+            distancia2=document.getElementById('distancia').value
+            volumen2=document.getElementById('volumen').value
+            tono2=document.getElementById('tono').value
+            document.getElementById('distancia2').value=distancia2
+            document.getElementById('volumen2').value=volumen2
+            document.getElementById('tono2').value=tono2
+            document.getElementById("formajustes3").submit()
+        }
+        function volver(){
+            window.open('/menu3','_parent')
+        }
+        function guardar(){
+            document.getElementById("formajustes").submit()
+        }
+    </script>
+    <style>
+        #ajustes{
+            background-color:rgba(255, 255, 255, 0);
+            border-color: rgba(255, 255, 255, 0);
+            position: absolute;
+            left: 43%;
+            top: 5%;
+            text-align: center;
+            font-family:'Courier New', Courier, monospace;
+        }
+        #boton{
+            background-color:rgba(255, 255, 255, 0);
+            border-color: rgba(255, 255, 255, 0);
+            position: absolute;
+            left: 30%;
+            top: 32%;
+            width: 200px;
+            text-align: center;
+            font-family:'Courier New', Courier, monospace;
+        }
+        #sonido{
+            background-color:rgba(238, 252, 255, 0.897);
+            border-color: rgba(255, 255, 255, 0);
+            position: absolute;
+            left: 46%;
+            top: 32%;
+            height: 200px;
+            width: 400px;
+            text-align: center;
+            font-family:'Courier New', Courier, monospace;
+        }
+        #boton2{
+            background-color:rgba(255, 255, 255, 0);
+            border-color: rgba(255, 255, 255, 0);
+            position: absolute;
+            left: 30%;
+            top: 42%;
+            width: 200px;
+            text-align: center;
+            font-family:'Courier New', Courier, monospace;
+        }
+        #boton3{
+            background-color:rgba(255, 255, 255, 0);
+            border-color: rgba(255, 255, 255, 0);
+            position: absolute;
+            left: 33%;
+            top: 63.3%;
+            width: 100px;
+            text-align: center;
+            font-family:'Courier New', Courier, monospace;
+        }
+        #botonrestablecer{
+            background-color:rgba(255, 255, 255, 0);
+            border-color: rgba(255, 255, 255, 0);
+            position: absolute;
+            left: 30%;
+            top: 52%;
+            width: 200px;
+            text-align: center;
+            font-family:'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+<body style="background-image: url('/static/Fondo.jpg');">
+    <div class="card" id="ajustes">
+        <h1>AJUSTES</h1>
+    </div>
+    <div class="card" id="boton">
+        <button class="btn btn-info" onclick="recorrido()">Ver recorridos guardados</button>
+    </div>
+    <div class="card" id="sonido">
+        <form action="/ajustes2" method="post" id="formajustes">
+            <label for="distancia">Distancia de detección: </label> 
+            <input type="number" name="distancia" id="distancia" min="1" max="5" value="{{distancia}}"><br><br>
+            <label for="volumen">Volumen de sonido: </label>
+            <input type="range" name="volumen" id="volumen" min="0" max="100" value="{{volumen}}"><br><br>
+            <label for="tono">Tono de sonido: </label>
+            <input type="range" name="tono" id="tono" min="0" max="100" value="{{sonido}}"><br><br><br><br>
+            <button type="submit" class="btn btn-info" value="Guardar" onclick="guardar()">Guardar</button>
+        </form>
+    </div>
+    <div class="card" id="botonrestablecer">
+        <button class="btn btn-info" onclick="restablecer()">Restablecer</button>
+    </div>
+    <div class="card" id="boton2">
+        <button class="btn btn-info" onclick="probar()">Probar ajustes de sonido</button>
+    </div>
+    <div class="card" id="boton3">
+        <button class="btn btn-info" onclick="volver()">Volver</button>
+    </div>
+    <form action="/ajustes3" method="post" id="formajustes3">
+        <input type="hidden" name="distancia2" id="distancia2">
+        <input type="hidden" name="volumen2" id="volumen2">
+        <input type="hidden" name="tono2" id="tono2">
+    </form>
+</body>
+</html>

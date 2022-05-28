@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver recorridos</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function elegido(){
+            document.getElementById("formrec2").submit()
+        }
+        function volver(){
+            window.open('/ajustes','_parent')
+        }
+    </script>
+    <style>
+        #titulo{
+            background-color:rgba(255, 255, 255, 0);
+            border-color: rgba(255, 255, 255, 0);
+            position: absolute;
+            left: 33%;
+            top: 5%;
+            text-align: center;
+            font-family:'Courier New', Courier, monospace;
+        }
+        #cuerpo{
+            background-color:rgba(255, 255, 255, 0);
+            border-color: rgba(255, 255, 255, 0);
+            position: absolute;
+            left: 42%;
+            top: 38%;
+            text-align: center;
+            font-family:'Courier New', Courier, monospace;
+        }
+        #cuerpo2{
+            background-color:rgba(255, 255, 255, 0);
+            border-color: rgba(255, 255, 255, 0);
+            position: absolute;
+            left: 47%;
+            top: 55%;
+            text-align: center;
+            font-family:'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+<body style="background-image: url('/static/Fondo.jpg');">
+    <div class="card" id="titulo">
+        <h1>Recorridos guardados</h1>
+    </div>
+    <div class="card" id="cuerpo">
+        <form action="/verrecorrido2" method="post" id="formrec2">
+            <label for="eleccion">Elegir recorrido: </label> 
+            <input type="number" name="eleccion" id="eleccion" min="1" max="{{maximo}}">
+            <br>
+            <br>
+            <button type="submit" class="btn btn-info" value="elegido" onclick="elegido()">Continuar</button>
+            <br>
+            <br>
+        </form>
+    </div>
+    <div id="cuerpo2">
+        <button type="submit" class="btn btn-info" value="volver" onclick="volver()">Volver</button>
+    </div>
+    
+</body>
+</html>

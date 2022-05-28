@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recorrido</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  <script >
+    setTimeout(function(){
+      window.location.reload(1)
+    },2000)
+</script>
+  <style>
+    #titulo{
+            background-color:rgba(255, 255, 255, 0);
+            border-color: rgba(255, 255, 255, 0);
+            position: absolute;
+            left: 33%;
+            top: 5%;
+            text-align: center;
+            font-family:'Courier New', Courier, monospace;
+        }
+    #map{
+      height: 400px;
+      width: 400px;
+      position: absolute;
+      top: 25%;
+      left: 35%;
+    }
+    #posicion{
+      height: 400px;
+      width: 400px;
+      position: absolute;
+      top: 14%;
+      left: 37%;
+    }
+    #cuerpo{
+            background-color:rgba(255, 255, 255, 0);
+            border-color: rgba(255, 255, 255, 0);
+            position: absolute;
+            left: 45%;
+            top: 88%;
+            text-align: center;
+            font-family:'Courier New', Courier, monospace;
+        }
+  </style>
+    <script>
+        function volver(){
+            window.open('/verrecorrido','_parent')
+        }
+    </script>
+</head>
+<body style="background-image: url('/static/Fondo.jpg');">
+    <div class="card" id="titulo">
+        <h1>Recorridos guardados</h1>
+    </div>
+    <div class="card" id="cuerpo">
+        <button type="submit" class="btn btn-info" value="elegido" onclick="volver()">Volver</button>
+    </div>
+    <div id="posicion">
+      <p id="uno"></p>
+    </div>
+    
+    <div id="map"></div>
+    <script>
+        function initMap(){
+            var y = document.getElementById("uno");
+            var lati=parseFloat("{{latitud}}");
+            var longi=parseFloat("{{longitud}}");
+            y.innerHTML="Posicion {{cont}}: "+lati+", "+longi
+            var options ={
+                zoom:16   ,
+                center:{lat:lati,lng:longi}
+            }
+
+            var map = new google.maps.Map(document.getElementById('map'),options);
+            
+            marcador(lati,longi)
+            function marcador(lati,longi){
+            var marker=new google.maps.Marker({
+                position:{lat:lati,lng:longi},
+                map:map
+            })
+            }
+        }
+    </script>
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApYlMFG7dg74u70OtVY25lef62RBlLNfo&callback=initMap&libraries=&v=weekly"
+    async defer
+    >
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function inicio(){
+            usuario=document.getElementById("usuario").value;
+            password=document.getElementById("password").value;
+            if ((usuario=="") || (password=="")){
+                alert("Ingrese todos los valores");
+            }
+            else{
+                document.getElementById("formlogin").submit()
+            }
+        }
+        function volver(){
+            window.open('/','_parent')
+        }
+    </script>
+    <style>
+        #iniciar{
+            width:700px;
+            position: absolute;
+            left: 27%;
+            top: 30%;
+            background-color:rgba(255, 255, 255, 0.76);
+            font-family:'Courier New', Courier, monospace;
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body style="background-image: url('/static/Fondo2.png');">
+    <div class="card" id="iniciar">
+        <div class="card-body">
+            <form action="/menu" method="post" id="formlogin">
+                <h1>INICIO DE SESIÓN</h1>
+                <p class="parrafo">Usuario : <input type="text" name="usuario" id="usuario"></p>
+                <p class="parrafo">Contraseña : <input type="password" name="password" id="password"></p>
+                <p><button type="button" class="btn btn-info" onclick="inicio()">Iniciar</button></p>
+                <p><button type="button" class="btn btn-info" onclick="volver()">Volver</button></p>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>

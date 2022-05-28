@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detección Obstáculos</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        setTimeout(function(){
+            window.location.reload(1)
+        },1000)
+    </script>
+    <script>
+        function detener(){
+            window.open('/sensor','_parent')
+        }
+    </script>
+    <style>
+        #sensor{
+            background-color:rgba(255, 255, 255, 0);
+            border-color: rgba(255, 255, 255, 0);
+            position: absolute;
+            left: 30%;
+            top: 5%;
+            text-align: center;
+            font-family:'Courier New', Courier, monospace;
+        }
+        #iniciar{
+            background-color:rgba(255, 255, 255, 0);
+            border-color: rgba(255, 255, 255, 0);
+            position:absolute;
+            left: 45%;
+            top: 70%;
+            text-align: center;
+        }
+        #lectura{
+            background-color:rgba(238, 252, 255, 0.897);
+            border-color: rgba(255, 255, 255, 0);
+            position:absolute;
+            left: 37%;
+            top: 30%;
+            height: 200px;
+            width: 400px;
+            text-align: center;
+            font-size: 16pt;
+            font-family:'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+<body style="background-image: url('/static/Fondo.jpg');">
+    <div class="card" id="sensor">
+        <h1>DETECCIÓN DE OBSTÁCULOS</h1>
+    </div>
+    <div class="card" id="lectura">
+        <p></p>
+        <p></p>
+        <p></p>
+        <p>Distancia del obstáculo:</p>
+        <p></p>
+        <p></p>
+        <p>{{dato}} cm</p>
+    </div>
+        <div class="card" id="iniciar">
+        <button type="button" class="btn btn-info" onclick="detener()">Detener Sensor</button>
+    </div>
+    
+</body>
+</html>

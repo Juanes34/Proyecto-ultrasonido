@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        #titulo{
+            background-color:rgba(255, 255, 255, 0.644);
+            position: absolute;
+            left: 24.5%;
+            top: 5%;
+            text-align: center;
+            font-size: xx-large;
+            font-family:'Courier New', Courier, monospace;
+        }
+        #inicio{border-style: groove;
+            background-color:rgba(191, 232, 255, 0.671);
+            border-color: lightsteelblue;
+            border-width: thin;
+            padding: 10px;
+            width: 400px;
+            font-family: 'Courier New', Courier, monospace;
+            position: absolute;
+            left: 37%;
+            top: 40%; 
+            text-align: center;  
+            }
+    </style>
+    <script>
+        function ingresar(){
+            window.open('/login','_parent')
+        }
+        function registro(){
+            window.open('/registro','_parent')
+        }
+    </script>
+</head>
+<body style="background-image: url('/static/Fondo2.png');">
+    <div class="card" id="titulo">
+        <div class="card-body">Dispositivo de detección de obstáculos</div>
+      </div>
+    <div class="card" id="inicio">
+        <div class="card-body">
+            <p><button type="button" class="btn btn-light" onclick="ingresar()">Ingresar</button></p>
+            <p><button type="button" class="btn btn-light" onclick="registro()">Registrarse</button></p>
+        </div>
+    </div>
+</body>
+</html>
